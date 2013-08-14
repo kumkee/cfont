@@ -10,21 +10,44 @@
 
         {
         "type": "font",
-        "defName": "FONT_ROBOTO_CONDENSED_21",
-        "file": "fonts/Roboto-Condensed.ttf"
+        "defName": "FONT_SIMHEI_CCAL_18",
+        "file": "fonts/simhei-ccal.ttf"
         },
 
         {
         "type": "font",
-        "characterRegex": "[:0-9]",
-        "defName": "FONT_ROBOTO_BOLD_SUBSET_49",
-        "file": "fonts/Roboto-Bold.ttf"
+        "defName": "FONT_VL_CCAL_18",
+        "file": "fonts/vlgothic-ccal.ttf"
         },
 
         {
         "type": "font",
-        "defName": "FONT_CCAL_18",
+        "defName": "FONT_MONA_CCAL_18",
+        "file": "fonts/mona-ccal.ttf"
+        },
+
+        {
+        "type": "font",
+        "defName": "FONT_WQYZH_CCAL_18",
         "file": "fonts/wqyzenhei-ccal.ttf"
+        },
+
+        {
+        "type": "font",
+        "defName": "FONT_WQYMH_CCAL_18",
+        "file": "fonts/wqymicrohei-ccal.ttf"
+        },
+
+        {
+        "type": "font",
+        "defName": "FONT_IPAG_CCAL_18",
+        "file": "fonts/ipag-ccal.ttf"
+        },
+
+        {
+        "type": "font",
+        "defName": "FONT_IPAGP_CCAL_18",
+        "file": "fonts/ipagp-ccal.ttf"
         }
 
  ]

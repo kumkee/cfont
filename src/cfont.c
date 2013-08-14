@@ -9,7 +9,9 @@ Window window;
 
 TextLayer text_chinese_layer1;
 TextLayer text_chinese_layer2;
-TextLayer text_time_layer;
+TextLayer text_chinese_layer3;
+TextLayer text_chinese_layer4;
+//TextLayer text_time_layer;
 
 Layer line_layer;
 
@@ -18,15 +20,15 @@ void line_layer_update_callback(Layer *me, GContext* ctx) {
 
   graphics_context_set_stroke_color(ctx, GColorWhite);
 
-  graphics_draw_line(ctx, GPoint(8, 97), GPoint(131, 97));
-  graphics_draw_line(ctx, GPoint(8, 98), GPoint(131, 98));
+  graphics_draw_line(ctx, GPoint(0, 84), GPoint(143, 84));
+  graphics_draw_line(ctx, GPoint(0, 85), GPoint(143, 85));
 
 }
 
 
 void handle_init(AppContextRef ctx) {
 
-  static char sample_text1[] = "一二四五三廿正";
+  static char sample_text1[] = "一二三四五廿正初";
   static char sample_text2[] = "六七八九十月閏";
 
   window_init(&window, "CFont");
@@ -39,26 +41,44 @@ void handle_init(AppContextRef ctx) {
   text_layer_init(&text_chinese_layer1, window.layer.frame);
   text_layer_set_text_color(&text_chinese_layer1, GColorWhite);
   text_layer_set_background_color(&text_chinese_layer1, GColorClear);
-  layer_set_frame(&text_chinese_layer1.layer, GRect(8, 37, 144-8, 168-37));
-  text_layer_set_font(&text_chinese_layer1, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CCAL_18)));
+  layer_set_frame(&text_chinese_layer1.layer, GRect(0, 5, 168, 40));
+  text_layer_set_font(&text_chinese_layer1, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_WQYZH_CCAL_18)));
   text_layer_set_text(&text_chinese_layer1, sample_text1);
   layer_add_child(&window.layer, &text_chinese_layer1.layer);
 
   text_layer_init(&text_chinese_layer2, window.layer.frame);
   text_layer_set_text_color(&text_chinese_layer2, GColorWhite);
   text_layer_set_background_color(&text_chinese_layer2, GColorClear);
-  layer_set_frame(&text_chinese_layer2.layer, GRect(8, 68, 144-8, 168-68));
-  text_layer_set_font(&text_chinese_layer2, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CCAL_18)));
+  layer_set_frame(&text_chinese_layer2.layer, GRect(0, 45, 168, 40));
+  text_layer_set_font(&text_chinese_layer2, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_WQYZH_CCAL_18)));
   text_layer_set_text(&text_chinese_layer2, sample_text2);
   layer_add_child(&window.layer, &text_chinese_layer2.layer);
 
 
+  text_layer_init(&text_chinese_layer3, window.layer.frame);
+  text_layer_set_text_color(&text_chinese_layer3, GColorWhite);
+  text_layer_set_background_color(&text_chinese_layer3, GColorClear);
+  layer_set_frame(&text_chinese_layer3.layer, GRect(0, 91, 168, 40));
+  text_layer_set_font(&text_chinese_layer3, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IPAG_CCAL_18)));
+  text_layer_set_text(&text_chinese_layer3, sample_text1);
+  layer_add_child(&window.layer, &text_chinese_layer3.layer);
+
+  text_layer_init(&text_chinese_layer4, window.layer.frame);
+  text_layer_set_text_color(&text_chinese_layer4, GColorWhite);
+  text_layer_set_background_color(&text_chinese_layer4, GColorClear);
+  layer_set_frame(&text_chinese_layer4.layer, GRect(0, 131, 168, 40));
+  text_layer_set_font(&text_chinese_layer4, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_IPAG_CCAL_18)));
+  text_layer_set_text(&text_chinese_layer4, sample_text2);
+  layer_add_child(&window.layer, &text_chinese_layer4.layer);
+
+  /*
   text_layer_init(&text_time_layer, window.layer.frame);
   text_layer_set_text_color(&text_time_layer, GColorWhite);
   text_layer_set_background_color(&text_time_layer, GColorClear);
   layer_set_frame(&text_time_layer.layer, GRect(7, 92, 144-7, 168-92));
   text_layer_set_font(&text_time_layer, fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ROBOTO_BOLD_SUBSET_49)));
   layer_add_child(&window.layer, &text_time_layer.layer);
+  */
 
 
   layer_init(&line_layer, window.layer.frame);
@@ -69,6 +89,7 @@ void handle_init(AppContextRef ctx) {
 }
 
 
+/*
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
 
   // Need to be static because they're used by the system later.
@@ -100,16 +121,17 @@ void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t) {
   text_layer_set_text(&text_time_layer, time_text);
 
 }
+*/
 
 
 void pbl_main(void *params) {
   PebbleAppHandlers handlers = {
     .init_handler = &handle_init,
 
-    .tick_info = {
+    /*.tick_info = {
       .tick_handler = &handle_minute_tick,
       .tick_units = MINUTE_UNIT
-    }
+    }*/
 
   };
   app_event_loop(params, &handlers);
